@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<header>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			.a{margin:0px auto; width:500px;}
+			.a1{color:red; }
+			.a2{margin-top:30px;}
+			.d{height:10px;}
+		</style>
+		
+		<title></title>
+	</header>
+	<article class="a">
+		<h1 >请填写个人信息</h1>
+		<fieldset class="a2">
+			<legend class="a1">基本信息</legend>
+			<form>
+				姓名<input type="text" name="text1" required="required" placeholder="请输入姓名"/><span class="a1">*</span><br />
+				年龄<input type="number" name="number1" />
+			</form>
+		</fieldset>
+		<fieldset class="a2">
+			<legend class="a1">你想在哪里收到邮件？</legend>
+			<form>
+				邮箱<input type="search" name="email1" autocomplete="on"  placeholder="请输入邮箱" list="names" id="email" 
+					onkeyup="keydown()" onkeydown="key(event)"/><span class="a1">*</span>
+		             
+             <datalist id="names" class="b" onclick="click()">
+					<option>qq.com</option>
+					<option>163.com</option>
+					<option>gmail.com</option>
+					<option >yahoo.com.cn</option>
+					<option>126.com</option>
+			</datalist>
+			</form>
+		</fieldset>
+		<fieldset class="a2">
+			<legend class="a1">收入情况</legend>
+			<form>
+				月收入
+				<select>
+					<option>20k+</option>
+					<option>30k+</option>
+					<option>40k+</option>
+				</select>
+				<br />
+				银行卡<input type="text" name="a" />
+				有效期<input type="date" name="date1" />
+			</form>
+		</fieldset>
+		
+		<fieldset class="a2">
+			<legend class="a1">选取提交文件</legend>
+			<form>
+				文件<input type="file"name="file"/><br />
+			</form>
+		</fieldset>
+		<input type="submit" name="submit1" class="a2"/>
+	</article>
+		
+	<script>
+			var email=document.getElementById('email');
+			var b=document.getElementsByClassName('b')[0];
+			c=b.children;
+			var a=[];
+			for(var i=0;i<c.length;i++){
+				a[i]=c[i].value;
+			}
+			function click(){
+				alert('aa');
+				for(var k=0;k<c.length;k++){
+				c[k].value=c[k].value-a[k];
+			  }
+		    }
+			function keydown(){
+				
+				for(var i=0;i<c.length;i++){
+			    c[i].value=email.value+ a[i];
+			    
+			}
+			}
+		
+			function key(e){
+				if(e.keyCode==13){
+					email1=email.value.split(","); //字符串变成数组
+					for(var j=0;j<email1.length;j++){
+						if(/[^a-z0-9\.]/.test(email1[j])){
+							alert('邮箱输入错误');
+					}
+				}
+			}
+		}
+		</script>
+</html>
