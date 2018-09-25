@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+        window.onload=function(){  //页面重新打开时
+			var e=document.getElementsByClassName('event');
+			console.log(e.length);
+			var color=['blue','yellow','green','#A0A0A0','red'];
+			for(var i=0;i<e.length;i++){
+			  //e[i].style.marginTop='10px'
+			  e[i].style.backgroundColor=color[i];
+			   e[i].index=i;
+			    e[i].onclick=function(){
+			    localStorage.setItem('d',color[this.index]);
+			    var c=document.getElementById('c');
+			    c.style.backgroundColor=localStorage.getItem('d');
+			    	for(var j=0;j<e.length;j++){
+				      this.style.marginTop='0px'
+				      e[j].style.marginTop='10px'
+			      }
+			    }
+		    }
+			var c=document.getElementById('c');
+			c.style.backgroundColor=localStorage.getItem('d');
+			
+		    
+		}
+	</script>
+	<style>
+		fieldset{margin:20px auto;width:500px; height:200px;}
+		legend{color:red;font-weight:bold;}
+		.b{border:2px solid #A0A0A0;margin:30px auto;width:480px;height:50px;}
+		.event{margin:10px 5px;width:30px;height:30px;float:left;}
+		#c{margin:20px auto;}
+	</style>
+	<body>
+		<fieldset>
+			<legend><span>页面换肤</span></legend>
+			<div class="b">
+				<div  class="event"></div>
+				<div  class="event"></div>
+				<div class="event"></div>
+				<div class="event"></div>
+				<div class="event"></div>
+				<div  class="event"></div>
+			</div>
+			<div id="c"><p>LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器关闭了，该数据仍然存在，下次打开
+			浏览器访问网站时依然可以继续使用</p></div>
+		</fieldset>
+		
+	</body>
+	
+</html>
