@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height="600"></canvas> 
+	</body>
+	<script>
+		window.onload=function(){
+		var elem=document.getElementById('canvas');
+		var context=elem.getContext('2d');
+	 function Clock(){
+	 	context.save();
+	 	context.clearRect(0,0,600,600);
+		context.lineWidth=2;
+		context.strokeStyle="coral";
+		context.strokeRect(0,0,400,400);
+		context.beginPath();
+		context.lineWidth=10;
+		context.strokeStyle="greenyellow";
+		context.arc(200,200,175,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.beginPath();
+		context.lineWidth=3;
+		context.strokeStyle="red";
+		context.arc(200,200,6,0,2*Math.PI);
+		context.stroke();
+		context.beginPath();
+		context.arc(200,200,4,0,2*Math.PI);
+		context.fillStyle='black';
+		context.fill();
+		context.closePath();
+		context.beginPath();
+		context.translate(200,200);
+		context.fillStyle='black';
+	    context.fillRect(-2.5,-150,5,10);
+	    context.fill(); 
+		for(var i=1;i<=60;i++){
+			context.beginPath();
+			context.rotate(Math.PI/30);
+			context.fillRect(-2.5,-150,5,10);
+			  if(i%5==0){
+			  	context.beginPath();
+				context.fillStyle='red';
+	            context.fillRect(-4,-150,8,18);
+	            context.fill();
+			}
+			context.fillStyle='black';  
+		}
+		//数字
+		for(var i=1;i<=12;i++){
+			context.fillStyle = "black";
+			var a=Math.cos((0+30*(i-3))/180*Math.PI)*120+0;
+			var	b=Math.sin((0+30*(i-3))/180*Math.PI)*120+0;
+            context.fillText(i,a,b);
+       }
+		var time=new Date();
+		
+	     //秒针
+	     context.beginPath();
+		 var sec=time.getSeconds()/5;
+         context.lineWidth = '2';
+         context.strokeStyle="red";
+         context.moveTo(0,0);
+         context.lineTo(130*Math.cos(30*(sec-3)/180*Math.PI),130*Math.sin(30*(sec-3)/180*Math.PI));
+         context.stroke();
+         context.closePath();
+         context.beginPath();
+		context.lineWidth=3;
+		context.arc(90*Math.cos(30*(sec-3)/180*Math.PI),90*Math.sin(30*(sec-3)/180*Math.PI),6,0,2*Math.PI);
+		context.stroke();
+		context.beginPath();
+		context.arc(90*Math.cos(30*(sec-3)/180*Math.PI),90*Math.sin(30*(sec-3)/180*Math.PI),4,0,2*Math.PI);
+		context.fillStyle='black';
+		context.fill();
+         //分针
+          context.beginPath(); 
+		 var min=time.getMinutes()/5;
+         context.lineWidth = '3';
+         context.strokeStyle='coral';
+         context.moveTo(0,0);
+         context.lineTo(120*Math.cos(30*(min-3)/180*Math.PI),120*Math.sin(30*(min-3)/180*Math.PI))
+         context.stroke();
+         context.closePath();
+         //时针
+         context.beginPath();
+         var hour=time.getHours();
+         context.lineWidth = '4';
+         context.strokeStyle='palevioletred';
+         context.moveTo(0,0);
+         context.lineTo(110*Math.cos((30*((hour-3)+time.getMinutes()/60))/180*Math.PI),110*Math.sin((30*((hour-3)+time.getMinutes()/60))/180*Math.PI))
+         context.stroke();
+         context.closePath();
+		
+	     context.restore();
+	 }
+	 setInterval(Clock,1000);
+	}
+	</script>
+</html>
