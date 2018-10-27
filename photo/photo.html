@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	.div{
+	 margin:0px auto;
+	 width:1200px;
+	 height:600px;
+	 background:url(image/bg3.JPG) no-repeat ;
+	 background-size:100% 100%;
+	}
+	.div-child{
+		padding-top:5px;
+	    width:1200px;
+	    height:300px;
+	    margin:0 auto;
+	}
+	.div li{background:#fff;margin:0px 10px;float:left;
+	 		list-style:none;border:10px #fff solid;
+	 		background-repeat: no-repeat;
+	 		background-origin:content-box;
+	   }
+	.div1{width:150px; height:80px;
+		    background-size: 150px 80px;
+		    background-image:url(image/11.jpg);
+	        margin-bottom:13px;
+	   }
+	 .div2{width:120px; height:100px;
+		    background-size: 120px 100px;
+		    background-image:url(image/22.JPG);
+	        margin-bottom:10px;
+	   }
+	   .div3{width:150px; height:100px;
+	        background-size: 150px 100px;
+	   	    background-image:url(image/33.JPG);
+	   		margin-bottom:5px;
+	   }
+	 .div4{width:140px; height:100px;
+	   		background-size: 140px 100px;
+	  		background-image:url(image/44.JPG);
+	   		margin-bottom:5px;
+	   }
+	 .div5{width:130px; height:100px;
+	   	   background-size: 130px 100px;
+	       background-image:url(image/55.JPG);
+	       margin-bottom:5px;
+	   }
+	 .div6{width:140px; height:100px;
+	   	   background-size: 130px 100px;
+	       background-image:url(image/66.JPG);
+	       margin-bottom:5px;
+	   }
+	.div-child span{padding-left:50px;color:gray;}
+	li:nth-child(1){width:150px;height:120px;transform:rotate(-5deg);}
+	li:nth-child(2){width:120px;height:140px;}
+	li:nth-child(3){width:150px;height:140px;transform:rotate(-10deg);}
+	li:nth-child(4){width:140px;height:140px;}
+	li:nth-child(5){width:130px;height:140px;transform:rotate(-5deg);}
+	li:nth-child(6){width:140px;height:140px;transform:rotate(-10deg);}
+	li:hover{
+		transform:rotate(0deg);
+		cursor:pointer;
+		transform:scale(1.2,1.2);
+		box-shadow:1px 1px 1px #444444,
+		          -1px -1px 1px #444444;
+		font-weight:bold;
+	}
+	</style>
+	<body>
+	 <div class="div">
+	   <div class="div-child">
+	   <ul>
+	     <li><div class="div1"></div><span>相识</span></li>
+	     <li><div class="div2"></div><span>凝视</span></li>
+	     <li><div class="div3"></div><span>甜睡</span></li>
+	     <li><div class="div4"></div><span>逗乐</span></li>
+	     <li><div class="div5"></div><span>奔跑</span></li>
+	     <li><div class="div6"></div><span>漠视</span></li>
+	    </ul>
+	   </div>
+	 </div>
+	</body>
+</html>
